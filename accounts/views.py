@@ -15,7 +15,7 @@ def login(request):
 
         if user is not None:
             auth.login(request, user)
-            return redirect('music') ##Double check this functionality/correctness
+            return redirect('playlist_index') ##Double check this functionality/correctness
         else:
             return render(request, 'accounts/login.html', {'error': 'Invalid credentials'})
 
@@ -54,7 +54,7 @@ def register(request):
                     user.save()
                     # the two lines below will automatically log the user in and send them to their page.  In the uncommented code we are not loggin them in, rather sending them to the login to do it themselves...
                     auth.login(request, user)
-                    return redirect('music')
+                    return redirect('playlist_index')
                     # return redirect('login')
         else:
             return render(request, 'accounts/register.html', {'error': 'Passwords do not match.'})
