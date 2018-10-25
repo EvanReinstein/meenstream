@@ -9,3 +9,6 @@ def playlist_index(request):
 def playlist_view(request, playlist_id):
     playlist = Playlist.objects.get(id=playlist_id)
     return render(request, 'music/playlist_view.html', {'playlist': playlist})
+
+def profile_view(request):
+    return render(request, 'music/profile.html')
