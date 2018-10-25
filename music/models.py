@@ -1,5 +1,7 @@
 from django.db import models
 
+from django.contrib.auth.models import User
+
 # Create your models here.
 class Playlist(models.Model):
     title = models.CharField(max_length=100)
@@ -9,7 +11,8 @@ class Playlist(models.Model):
         return f'{self.title}'
 
 class Profile(models.Model):
-    playlist = models.ForeignKey(Playlist, on_delete=models.CASCADE, related_name='profiles')
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name="profile")
+    playlist_id = models.ForeignKey(Playlist, on_delete=models.CASCADE, related_name="profile")
     full_name = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
     photo = models.CharField(max_length=100)
