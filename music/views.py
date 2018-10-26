@@ -27,7 +27,6 @@ def search(request):
     r = artist.content
     artist_decode = json.loads(r.decode())
     # print(artist_decode)
-
     return render(request, 'music/search.html', {'artist_data': artist_decode})
 
 def artist_top_tracks(request):
