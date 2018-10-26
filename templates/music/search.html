@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Search</h1>
+  {% if user_data %}
+
+  <p>Display Name: {{ user_data.display_name }}</p>
+  <p>Name: {{ user_data }}</p>
+  <p>Popularity: {{ user_data.artists.items }}</p>
+  {% for item in user_data.artists.items %}
+    {{ item.name }}
+  {% endfor %}
+  {% else %}
+   <p>No User data</p>
+  {% endif %}
+
+{% endblock %}
