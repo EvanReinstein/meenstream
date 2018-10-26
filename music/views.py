@@ -16,6 +16,7 @@ def playlist_view(request, playlist_id):
 def profile_view(request):
     return render(request, 'music/profile.html')
 
+#search artist
 def search(request):
     b_token = get_token()
     print(b_token)
@@ -23,16 +24,16 @@ def search(request):
         'Authorization': f'Bearer {b_token}',
     }
 
-    user_one = requests.get('https://api.spotify.com/v1/search?q=jimi+hendrix&type=artist', headers=headers)
-    r = user_one.content
-    user_decode = json.loads(r.decode())
-    print(user_decode)
+    artist = requests.get('https://api.spotify.com/v1/search?q=jimi+hendrix&type=artist', headers=headers)
+    r = artist.content
+    artist_decode = json.loads(r.decode())
+    print(artist_decode)
 
-    return render(request, 'music/search.html', {'user_data': user_decode})
+    return render(request, 'music/search.html', {'artist_data': artist_decode})
 
 
 def get_token():
-    string_bytes = b'ec0c6c26ad2b44398e60ed99edab8ed0:9315766205704431b20908cbae72e86e'
+    string_bytes = b'7f6d69ae386b414099749fee14c7bfc2:2f94240e53604bada9dd9f1fcb3b5275'
     encoded_data = base64.b64encode(string_bytes)
     basic_value = str(encoded_data, 'utf-8')
     print(basic_value)
