@@ -9,6 +9,7 @@
   <p>Popularity: {{ user_data.artists.items }}</p>
   {% for item in user_data.artists.items %}
     {{ item.name }}
+    <img src="{{ item.images.url }}" alt="">
   {% endfor %}
   {% else %}
    <p>No User data</p>
