@@ -4,14 +4,19 @@
 
 <!-- get artist name -->
 
-<h1>Tracks</h1>
+<h1>Top Tracks</h1>
 
-  {% if top_tracks %}
-  <p> {{ top_tracks }} </p>
+{% if top_tracks %}
+	<ul>
+		{% for track in top_tracks.tracks %} 
+	  		<li>{{ track.name }} | <a href="{{track.preview_url}}">Listen</a></li>
+	  	{% endfor %}
+	<ul>
 
-  {% else %}
-   <p>Artist not found</p>
-  {% endif %}
+{% else %}
+	<p>No songs found</p>
+
+{% endif %}
 
 
 {% endblock %}
