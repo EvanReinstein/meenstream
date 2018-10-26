@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- get artist name -->
+
+<h1>Tracks</h1>
+
+  {% if top_tracks %}
+  <p> {{ top_tracks }} </p>
+
+  {% else %}
+   <p>Artist not found</p>
+  {% endif %}
+
+
+{% endblock %}

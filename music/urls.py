@@ -6,4 +6,5 @@ urlpatterns = [
     path('<int:playlist_id>', views.playlist_view, name='playlist_view'),
     path('profile', views.profile_view, name="profile"),
     path('search', views.search, name="search"),
+    path('tracks', views.artist_top_tracks, name="tracks")
 ]
