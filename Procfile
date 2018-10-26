@@ -1,1 +1,1 @@
-web: gunicorn meenstream_project.wsgi
+web: gunicorn music_app.wsgi
