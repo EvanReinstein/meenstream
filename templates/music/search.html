@@ -16,7 +16,8 @@
   <input type="submit" value="Search">
 </form>
 
-<h1>Search Results: Artist</h1>
+<h1>Search Results</h1>
+
 
 <!-- Artists -->
 {% if artist_data %}
@@ -34,13 +35,66 @@
 
     <h3>Spotify Id: {{ item.id }}</h3>
 
+    <!-- Playlist Search  -->
+    {% for item in artist_data.playlists.items %}
+    <h3>Playlist Name: {{ item.name }}<h3>
+        {% for image in item.images %}
+        <img src="{{ image.url }}" alt="">
+        {% endfor %}
+        <h4><a href="{{ item.external_urls.spotify }}">Listen</a></h4>
+
+        <!-- <h3>Spotify Id: {{ item.id }}</h3> -->
 
 
-    {% endfor %}
+        {% endfor %}
 
-    {% else %}
-    <p>Artist not found</p>
-    {% endif %}
+        <!-- Album Search  -->
+        {% for item in artist_data.albums.items %}
+        {% for name in item.artists %}
+        <h3>Artist Name: {{ name.name }}</h3>
+        {% endfor %}
+        <h3>Album name: {{ item.name }}<h3>
+            {% for image in item.images %}
+            {% if image.width == 300 %}
+            <img src="{{ image.url }}" alt="">
+            {% endif %}
+            {% endfor %}
+            <h4><a href="{{ item.external_urls.spotify }}">Listen</a></h4>
+
+            <!-- <h3>Spotify Id: {{ item.id }}</h3> -->
 
 
-    {% endblock %}
+            {% endfor %}
+
+            <!-- Tracks Search  -->
+            {% for item in artist_data.tracks.items %}
+            {% for name in item.artists %}
+            <h3>Artist Name: {{ name.name }}</h3>
+            {% endfor %}
+            <h3>Track Name: {{ item.name }}<h3>
+                {% for image in item.album.images %}
+                {% if image.width == 300 %}
+                <img src="{{ image.url }}" alt="">
+                {% endif %}
+                {% endfor %}
+                <h4><a href="{{ item.external_urls.spotify }}">Listen</a></h4>
+
+                <!-- <h3>Spotify Id: {{ item.id }}</h3> -->
+
+
+                {% endfor %}
+
+                <<<<<<< HEAD {% else %} <p>Artist not found</p>
+                  {% endif %}
+
+
+                  {% endblock %}
+                  =======
+                  {% else %}
+                  <p>Content not found</p>
+                  {% endif %}
+
+
+
+                  {% endblock %}
+                  >>>>>>> 3cb79941d3c5a5b1db159d4398c3487a71bc90fa
