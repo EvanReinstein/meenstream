@@ -4,8 +4,8 @@
 
 
 <!-- get artist name -->
-<form action="https://api.spotify.com/v1/search" method="GET">
-  <input name="q" type="text" placeholder="Search">
+<form action="{% url 'search' %}" method="GET">
+  <input name="content" type="text" placeholder="Search">
   <select name="type">
     <option value="artist">Artist</option>
     <option value="playlist">Playlist</option>
@@ -17,7 +17,10 @@
 
 <h1>Search Results: Artist</h1>
 
+<!-- Artists -->
   {% if artist_data %}
+
+  {{ artist_data }}
   <!-- <p>Artist Items: {{ artist_data.artists.items }}</p> -->
     {% for item in artist_data.artists.items %}
       <h3>Artist name: {{ item.name }}<h3>
@@ -37,5 +40,6 @@
   {% else %}
    <p>Artist not found</p>
   {% endif %}
+
 
 {% endblock %}
