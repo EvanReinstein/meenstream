@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Playlist, Profile
+from django.http import HttpResponse
 import requests
 import json
 import base64
@@ -23,10 +24,15 @@ def search(request):
     headers = {
         'Authorization': f'Bearer {b_token}',
     }
-    artist = requests.get('https://api.spotify.com/v1/search?q=jimi+hendrix&type=artist', headers=headers)
+    q = request.GET.get('content')
+    type = request.GET.get('type')
+    print(q)
+    print (type)
+    artist = requests.get(f'https://api.spotify.com/v1/search?q={q}&type={type}', headers=headers)
     r = artist.content
     artist_decode = json.loads(r.decode())
     # print(artist_decode)
+
     return render(request, 'music/search.html', {'artist_data': artist_decode})
 
 def artist_for_tracks():
