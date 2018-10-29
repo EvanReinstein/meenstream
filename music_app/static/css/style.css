@@ -131,7 +131,6 @@ footer {
     font-size: 14px;
     font-weight: 700;
     width: 100%;
-    position: absolute;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
