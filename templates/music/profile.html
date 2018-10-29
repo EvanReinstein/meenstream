@@ -6,7 +6,7 @@
 
 
 <!-- get artist name -->
-<form action="{% url 'profile' %}" method="GET">
+<form action="{% url 'profile_view' username=user.username %}" method="GET">
   <input name="content" type="text" placeholder="Search">
   <select name="type">
     <option value="artist">Artist</option>
@@ -34,6 +34,7 @@
           {% endif %}
         {% endfor %}
       <h4><a href="{{ item.external_urls.spotify }}">Listen</a></h4>
+      <h4><a href="/music">Save</a></h4>
 
       <!-- <h3>Spotify Id: {{ item.id }}</h3> -->
 
