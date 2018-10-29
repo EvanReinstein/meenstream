@@ -20,6 +20,20 @@
 }
 
 .developers {
+    background-color: #F2B7C1;
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+}
+
+.developer-header {
+    text-align: center;
+}
+
+.photo {
+    justify-content: center;
+}
+
+.about-description {
+    width: 300px;
 }
