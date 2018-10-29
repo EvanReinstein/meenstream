@@ -14,22 +14,59 @@
 </head>
 
 <body>
-  <nav>
+
+  <nav class="nav-bar">
     <img class="logo" src="/static/images/meenstream logo.png" alt="Logo" />
-    <div>
-      <a href="{% url 'home' %}">Home</a>
-      <a href="{% url 'about' %}">About</a>
-      {% if user.is_authenticated %}
-      <a href="{% url 'playlist_index' %}">Profile</a>
-      <a href="{% url 'logout' %}">Logout</a>
-      {% else %}
-      <a href="{% url 'login' %}">Login</a>
-      <a href="{% url 'register' %}">Register</a>
-      {% endif %}
+
+    <div class="hamburger">
+      <img class="hamburger-icon" src="/static/images/hamburger-icon.png" alt="Hamburger" />
     </div>
+
+    <form>
+      <input type="text" placeholder="Seach" name="searchName" />
+      <input type="submit" placeholder="Submit" class="button" />
+    </form>
+
+    <ul class="nav-links">
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'about' %}">About</a></li>
+      {% if user.is_authenticated %}
+      <li><a href="{% url 'playlist_index' %}">Profile</a></li>
+      <li><a href="{% url 'logout' %}">Logout</a></li>
+      {% else %}
+      <li><a href="{% url 'login' %}">Login</a></li>
+      <li><a href="{% url 'register' %}">Register</a></li>
+      {% endif %}
+      </div>
+    </ul>
   </nav>
 
   <footer>
+    <div class="flogo-extra">
+      <img class="footer-logo" src="/static/images/meenstream-logo.png" alt="Logo" />
+      <br /> </br />
+      <br /> </br />
+      <ul class="privacy">
+        <li class="extra">Legal</li>
+        <li class="extra">Privacy Center</li>
+        <li class="extra">Privacy Policy</li>
+        <li class="extra">Cookies</li>
+        <li class="extra">About Ads</li>
+      </ul>
+    </div>
+
+    <div class="social">
+      <img class="instagram" src="/static/images/instagram-icon.png" alt="instagram" />
+      <img class="twitter" src="/static/images/twitter-icon.png" alt="twitter" />
+      <img class="facebook" src="/static/images/facebook-icon.png" alt="facebook" />
+      <br /> </br />
+      <br /> </br />
+
+      <p class="email">contact@meenstream.com</p>
+      <p class="location">San Francisco, CA</p>
+
+
+    </div>
 
   </footer>
 
