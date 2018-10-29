@@ -36,9 +36,16 @@ def profile_view(request, username):
     artist = requests.get(f'https://api.spotify.com/v1/search?q={q}&type={type}', headers=headers)
     r = artist.content
     artist_decode = json.loads(r.decode())
-    # print(artist_decode)
+    artist_parse = json.loads(r.decode())
+    # Variables for save function
+    artist_name = artist_parse['artists']['items'][0]['name']
+    artist_img = artist_parse['artists']['items'][0]['images'][1]['url']
+    artist_link = artist_parse['artists']['items'][0]['external_urls']['spotify']
+
+    print(artist_parse['artists']['items'][0]['external_urls']['spotify'])
 
     return render(request, 'music/profile.html', {'artist_data': artist_decode, 'user': user})
+
 
 def artist_for_tracks():
     b_token = get_token()

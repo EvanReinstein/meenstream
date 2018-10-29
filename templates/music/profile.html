@@ -26,15 +26,17 @@
   <!-- {{ artist_data }} -->
   <!-- <p>Artist Items: {{ artist_data.artists.items }}</p> -->
   <!-- Artist Search  -->
+  <div class="music-data">
     {% for item in artist_data.artists.items %}
       <h3>Artist Name: {{ item.name }}<h3>
         {% for image in item.images %}
-          {% if image.width <= 320 and image.width > 100 %}
+          {% if image.width <= 320 and image.width > 170 %}
             <img src="{{ image.url }}" alt="">
           {% endif %}
         {% endfor %}
       <h4><a href="{{ item.external_urls.spotify }}">Listen</a></h4>
-      <h4><a href="/music">Save</a></h4>
+  </div>
+  <h4><a class="save-music" href="/music">Save</a></h4>
 
       <!-- <h3>Spotify Id: {{ item.id }}</h3> -->
 
