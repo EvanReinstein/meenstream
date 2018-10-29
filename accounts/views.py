@@ -15,7 +15,7 @@ def login(request):
 
         if user is not None:
             auth.login(request, user)
-            return redirect('playlist_index') ##Double check this functionality/correctness
+            return redirect('profile') ##Double check this functionality/correctness
         else:
             return render(request, 'accounts/login.html', {'error': 'Invalid credentials'})
 
