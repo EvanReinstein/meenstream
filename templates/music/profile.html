@@ -29,7 +29,7 @@
     {% for item in artist_data.artists.items %}
       <h3>Artist Name: {{ item.name }}<h3>
         {% for image in item.images %}
-          {% if image.width == 320 %}
+          {% if image.width <= 320 and image.width > 100 %}
             <img src="{{ image.url }}" alt="">
           {% endif %}
         {% endfor %}
