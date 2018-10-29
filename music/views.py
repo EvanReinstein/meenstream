@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Playlist, Profile
+from django.contrib.auth.models import User
 from django.http import HttpResponse
 import requests
 import json
@@ -14,8 +15,15 @@ def playlist_view(request, playlist_id):
     playlist = Playlist.objects.get(id=playlist_id)
     return render(request, 'music/playlist_view.html', {'playlist': playlist})
 
+# def profile_view(request, username):
+#     user = User.objects.get(username=username)
+#
+#     return render(request, 'music/profile.html', {'user': user})
+
 # Includes search functionality
-def profile_view(request):
+def profile_view(request, username):
+    user = User.objects.get(username=username)
+    # playlists = Playlist.objects.filter(user_id=username)
     b_token = get_token()
     print(b_token)
     headers = {
@@ -30,8 +38,7 @@ def profile_view(request):
     artist_decode = json.loads(r.decode())
     # print(artist_decode)
 
-    return render(request, 'music/profile.html', {'artist_data': artist_decode})
-
+    return render(request, 'music/profile.html', {'artist_data': artist_decode, 'user': user})
 
 def artist_for_tracks():
     b_token = get_token()
