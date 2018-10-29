@@ -35,14 +35,33 @@ def search(request):
 
     return render(request, 'music/search.html', {'artist_data': artist_decode})
 
-def artist_top_tracks(request):
+def artist_for_tracks():
     b_token = get_token()
     headers = {
         'Authorization': f'Bearer {b_token}',
     }
-    top_tracks = requests.get('https://api.spotify.com/v1/artists/43ZHCT0cAZBISjO8DG9PnE/top-tracks?country=US', headers=headers)
-    r = top_tracks.content
-    top_tracks_decode = json.loads(r.decode())
+    artist = requests.get('https://api.spotify.com/v1/search?q=jimi+hendrix&type=artist', headers=headers)
+    r = artist.content
+    artist_decode = json.loads(r.decode())
+    artist = artist_decode['artists']
+    items = artist['items']
+    artist_id = items['id']
+    print(artist)
+    print(items)
+    print(artist_id)
+    # for item in artist.items:
+    #     artist_id = item.id
+    # return artist_id
+
+def artist_top_tracks(request):
+    artist_id = artist_for_tracks()
+    b_token = get_token()
+    headers = {
+        'Authorization': f'Bearer {b_token}',
+    }
+    top_tracks = requests.get(f'https://api.spotify.com/v1/artists/{artist_id}/top-tracks?country=US', headers=headers)
+    t = top_tracks.content
+    top_tracks_decode = json.loads(t.decode())
     print(top_tracks_decode)
     return render(request, 'music/tracks.html', {'top_tracks': top_tracks_decode})
 
