@@ -13,27 +13,27 @@
 
   <div>
     <label for="first_name">First Name</label>
-    <input type="text" name="first_name" placeholder="Enter your first name" required />
+    <input type="text" name="first_name" placeholder="Enter your first name" required maxlength="25" minlength="2" />
   </div>
   <div>
     <label for="last_name">Last Name</label>
-    <input type="text" name="last_name" placeholder="Enter your last name" required />
+    <input type="text" name="last_name" placeholder="Enter your last name" required maxlength="25" minlength="2" />
   </div>
   <div>
     <label for="email">Email</label>
-    <input type="text" name="email" placeholder="Email" required />
+    <input type="text" name="email" placeholder="Email" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"/>
   </div>
   <div>
     <label for="username">Username</label>
-    <input type="text" name="username" placeholder="Username" required />
+    <input type="text" name="username" placeholder="Username" required maxlength="25" minlength="2" />
   </div>
   <div>
     <label for="password">Password</label>
-    <input type="password" name="password" placeholder="Password" required />
+    <input type="password" name="password" placeholder="Password" required maxlength="25" minlength="8" />
   </div>
   <div>
     <label for="password2">Confirm Password</label>
-    <input type="password" name="password2" placeholder="Confirm Password" required />
+    <input type="password" name="password2" placeholder="Confirm Password" required maxlength="25" minlength="8" />
   </div>
   <input type="submit" value="Register">
 </form>
