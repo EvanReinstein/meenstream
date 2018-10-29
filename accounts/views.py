@@ -38,9 +38,9 @@ def register(request):
         password = request.POST['password']
         password2 = request.POST['password2']
         #kenny left the back end validation to us...
-        if first_name.length < 2:
+        if len(first_name) < 2:
             raise ValidationError(_('Invalid Credentials'))
-        if last_name.length < 2:
+        if len(last_name) < 2:
             raise ValidationError(_('Invalid Credentials'))
         #Check if passwords match
         if password == password2:
