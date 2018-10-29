@@ -3,9 +3,11 @@
 
 {% block content %}
 <h1>Playlist</h1>
-{% for playlist in playlists %}
+<div id="saved-music"></div>
+
+<!-- {% for playlist in playlists %}
 <a href="{% url 'playlist_view' playlist_id=playlist.id %}">{{ playlist.title }}</a>
-{% endfor %}
+{% endfor %} -->
 
 
 {% endblock %}
