@@ -31,8 +31,8 @@
       <li><a href="{% url 'home' %}">Home</a></li>
       <li><a href="{% url 'about' %}">About</a></li>
       {% if user.is_authenticated %}
-      <li><a href="{% url 'playlist_index' %}">Profile</a></li>
-      <li><a href="{% url 'logout' %}">Logout</a></li>
+      <a href="{% url 'profile_view' username=user.username %}">Profile</a>
+      <a href="{% url 'logout' %}">Logout</a>
       {% else %}
       <li><a href="{% url 'login' %}">Login</a></li>
       <li><a href="{% url 'register' %}">Register</a></li>

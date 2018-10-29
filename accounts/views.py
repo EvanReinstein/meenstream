@@ -1,9 +1,9 @@
-from django.shortcuts import render
-
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib import auth
 from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
+from django.utils.translation import ugettext_lazy as _
 
 # Create your views here.
 def login(request):
@@ -15,7 +15,7 @@ def login(request):
 
         if user is not None:
             auth.login(request, user)
-            return redirect('playlist_index') ##Double check this functionality/correctness
+            return redirect('profile') ##Double check this functionality/correctness
         else:
             return render(request, 'accounts/login.html', {'error': 'Invalid credentials'})
 
@@ -38,7 +38,10 @@ def register(request):
         password = request.POST['password']
         password2 = request.POST['password2']
         #kenny left the back end validation to us...
-
+        if first_name.length < 2:
+            raise ValidationError(_('Invalid Credentials'))
+        if last_name.length < 2:
+            raise ValidationError(_('Invalid Credentials'))
         #Check if passwords match
         if password == password2:
         #check if user already exists
