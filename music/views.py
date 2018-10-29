@@ -14,11 +14,8 @@ def playlist_view(request, playlist_id):
     playlist = Playlist.objects.get(id=playlist_id)
     return render(request, 'music/playlist_view.html', {'playlist': playlist})
 
+# Includes search functionality
 def profile_view(request):
-    return render(request, 'music/profile.html')
-
-#search artist
-def search(request):
     b_token = get_token()
     print(b_token)
     headers = {
@@ -33,7 +30,8 @@ def search(request):
     artist_decode = json.loads(r.decode())
     # print(artist_decode)
 
-    return render(request, 'music/search.html', {'artist_data': artist_decode})
+    return render(request, 'music/profile.html', {'artist_data': artist_decode})
+
 
 def artist_for_tracks():
     b_token = get_token()
