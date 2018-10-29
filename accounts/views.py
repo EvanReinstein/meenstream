@@ -4,6 +4,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib import auth
 from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
+from django.utils.translation import ugettext_lazy as _
 
 # Create your views here.
 def login(request):
