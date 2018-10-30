@@ -2,15 +2,12 @@
 {% load staticfiles %}
 
 {% block content %}
+
+{% for playlist in playlists %}
 <h1>Playlist</h1>
-
-  <h1>{{ name }}</h1>
-  <img src="{{ image }}" alt="">
-  <h1><a href="{{ url }}">Listen</a></h1>
-
-<!-- {% for playlist in playlists %}
-<a href="{% url 'playlist_view' playlist_id=playlist.id %}">{{ playlist.title }}</a>
-{% endfor %} -->
-
+  <h1>{{ playlist.name }}</h1>
+  <img src="{{ playlist.image }}" alt="">
+  <h1><a href="{{ playlist.url }}">Listen</a></h1>
+{% endfor %}
 
 {% endblock %}

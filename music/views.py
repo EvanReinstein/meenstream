@@ -12,9 +12,18 @@ def playlist_index(request):
     name = request.POST['artist-name']
     image = request.POST['artist-image']
     url = request.POST['external-url']
+    user_id = request.user.id
+    # user_playlists = Playlist.objects.filter(user_id=user_id)
+
+    playlist = Playlist.objects.create(name=name, image=image, url=url, user_id=user_id)
+    print(playlist)
+
+
+    # playlist = Playlist.objects.filter(user_id=request.user.id)
+    # playlist.update(name=name, image=image, url=url)
 
     print('ARTIST FORM = ', name, image, url)
-    return render(request, 'music/playlist_index.html', {'playlists': playlists, 'name': name, 'image': image, 'url': url})
+    return render(request, 'music/playlist_index.html', {'playlists': playlists, 'playlist': playlist})
 
 def playlist_view(request, playlist_id):
     playlist = Playlist.objects.get(id=playlist_id)
