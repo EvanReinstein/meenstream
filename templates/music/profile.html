@@ -4,6 +4,16 @@
 
 {% block content %}
 
+<div class="profile-detail">
+  <div>
+    <img src="{% static 'images/mockup-image.png' %}" alt="user profile image">
+  </div>
+  <div class="profile-info">
+    <h3>UserName (*.*) </h3>
+    <p>Lorem ipsum dolor amet shabby chic tattooed church-key forage yr everyday carry banh mi. Fingerstache ramps next level, vice shabby chic aliqua craft beer brunch. Chillwave seitan tbh fashion axe. Labore hot chicken cliche ethical live-edge ullamco lumbersexual 8-bit occupy +1
+    marfa. Culpa intelligentsia forage tofu squid. I bet you’re still using Bootstrap too…</p>
+  </div>
+</div>
 
 <!-- get artist name -->
 <form id="profile-search" action="{% url 'profile_view' username=user.username %}" method="GET">
@@ -17,7 +27,7 @@
   <input type="submit" value="Search">
 </form>
 
-<h1>Search Results</h1>
+<h1 class="profile-results">Search Results</h1>
 
 
 <!-- Artists -->
