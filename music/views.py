@@ -9,7 +9,12 @@ import base64
 # Create your views here.
 def playlist_index(request):
     playlists = Playlist.objects.all()
-    return render(request, 'music/playlist_index.html', {'playlists': playlists})
+    name = request.POST['artist-name']
+    image = request.POST['artist-image']
+    url = request.POST['external-url']
+
+    print('ARTIST FORM = ', name, image, url)
+    return render(request, 'music/playlist_index.html', {'playlists': playlists, 'name': name, 'image': image, 'url': url})
 
 def playlist_view(request, playlist_id):
     playlist = Playlist.objects.get(id=playlist_id)
@@ -36,13 +41,13 @@ def profile_view(request, username):
     artist = requests.get(f'https://api.spotify.com/v1/search?q={q}&type={type}', headers=headers)
     r = artist.content
     artist_decode = json.loads(r.decode())
-    artist_parse = json.loads(r.decode())
-    # Variables for save function
-    artist_name = artist_parse['artists']['items'][0]['name']
-    artist_img = artist_parse['artists']['items'][0]['images'][1]['url']
-    artist_link = artist_parse['artists']['items'][0]['external_urls']['spotify']
-
-    print(artist_parse['artists']['items'][0]['external_urls']['spotify'])
+    # artist_parse = json.loads(r.decode())
+    # # Variables for save function
+    # artist_name = artist_parse['artists']['items'][0]['name']
+    # artist_img = artist_parse['artists']['items'][0]['images'][1]['url']
+    # artist_link = artist_parse['artists']['items'][0]['external_urls']['spotify']
+    #
+    # print(artist_parse['artists']['items'][0]['external_urls']['spotify'])
 
     return render(request, 'music/profile.html', {'artist_data': artist_decode, 'user': user})
 
@@ -101,3 +106,11 @@ def get_token():
     print(res_decode['access_token'])
     auth_token = res_decode['access_token']
     return auth_token
+
+
+# def artist_save(request):
+#     name = request.POST['artist-name']
+#     image = request.POST['artist-image']
+#     url = request.POST['external-url']
+#
+#     print('ARTIST FORM = ', name, image, url)
