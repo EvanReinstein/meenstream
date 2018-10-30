@@ -117,6 +117,18 @@
 .main-header {
     margin-top: 150px;
     margin-bottom: 50px;
+    position: relative;
+}
+
+/* .main-header::before {
+    content: '';
+    position: absolute;
+} */
+
+#myVideo {
+    position: fixed;
+    top: 10px;
+    z-index: -1;
 }
 
 .submit-home {

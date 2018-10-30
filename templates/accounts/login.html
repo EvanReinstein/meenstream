@@ -5,21 +5,23 @@
 <h2>Login</h2>
 
 {% if error %}
-<p style=" background-color: red; padding: 1rem; ">{{ error }}</p>
+<p style=" background-color: red; padding: 1rem; margin-top: 65px; ">{{ error }}</p>
 {% endif %}
 
-<form action="{% url 'login' %}" method="POST">
+<form class="login-form" action="{% url 'login' %}" method="POST">
   {% csrf_token %}
 
   <div>
-    <label for="username">Username</label>
+    <label class="username-label" for="username">Username</label>
     <input type="username" name="username" placeholder="Username" required maxlength="25" minlength="2" />
   </div>
   <div>
-    <label for="password">Password</label>
+    <label class="username-label" for="password">Password</label>
     <input type="password" name="password" placeholder="Password" required maxlength="25" minlength="8" />
   </div>
-  <input type="submit" value="Login">
+  <div class="btn-container">
+    <input class="login-reg-submit" type="submit" value="Login">
+  </div>
 </form>
 
 {% endblock %}
