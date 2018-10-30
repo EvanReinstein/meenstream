@@ -11,7 +11,7 @@
 input[type=username],
 input[type=password] {
     text-align: center;
-    font-weight: 700px;
+    font-weight: 700;
     justify-content: center;
     border-radius: 5px;
     width: 500px;
@@ -26,9 +26,22 @@ input[type=password] {
     margin-top: 20px;
 }
 
+.login-submit:hover {
+    font-weight: 900;
+
+}
+
 .btn-container {
     display: flex;
     justify-content: center;
+}
+
+.username-label {
+    margin-top: 20px;
+    font-weight: 500;
+    font-size: 18px;
+    color: #333333;
+
 }
 
 
