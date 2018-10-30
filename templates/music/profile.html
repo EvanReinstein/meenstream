@@ -17,7 +17,7 @@
 
 <!-- get artist name -->
 <form id="profile-search" action="{% url 'profile_view' username=user.username %}" method="GET">
-  <input name="content" type="text" placeholder="Search">
+  <input id="search-input" name="content" type="text" placeholder="Search">
   <select name="type">
     <option value="artist">Artist</option>
     <option value="playlist">Playlist</option>

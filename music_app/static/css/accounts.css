@@ -53,8 +53,17 @@ input[type=email] {
 
 }
 
+@media only screen and (max-width: 540px) {
+  .login-form,
+  .registration-form {
+    width: 350px;
+  }
 
-/* border: none;
-background-color: #EFEFEF;
-font-size: 14px;
-font-weight: 700; */
+  input[type=username],
+  input[type=password],
+  .user-info,
+  input[type=text],
+  input[type=email] {
+    width: 350px;
+  }
+}
