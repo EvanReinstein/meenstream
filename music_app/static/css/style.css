@@ -71,6 +71,7 @@ a {
 
 input[type=text],
 input[type=text],
+input[type=username],
 input[type=password] {
     padding: 15px;
     margin: 0em;
