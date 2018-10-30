@@ -11,8 +11,27 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
-
-<h3>Homepage</h3>
-
 {% block content %}
+<div class="main-header">
+    <div>
+        <a href=""><button class="submit-home">Register</button></a>
+    </div>
+</div>
+
+<div class="photo-sub-main">
+    <h2 class="music-genres">Music Genres</h2>
+    <div class="main-images">
+        <div class="col-1">
+            <image class="photo-sub-main" src="/static/images/musicimage9.jpg" alt="Photo 1">
+                <image class="photo-sub-main" src="/static/images/musicimage22.jpg" alt="Photo 2">
+                    <image class="photo-sub-main" src="/static/images/musicimage66.jpg" alt="Photo 3">
+        </div>
+        <div class="col-2">
+            <image class="photo-sub-main" src="/static/images/musicimage1111.jpg" alt="Photo 4">
+                <image class="photo-sub-main" src="/static/images/musicimage44.jpg" alt="Photo 5">
+                    <image class="photo-sub-main" src="/static/images/musicimage111.jpg" alt="Photo 6">
+        </div>
+    </div>
+</div>
+
 {% endblock %}
