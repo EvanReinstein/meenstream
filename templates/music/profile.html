@@ -31,7 +31,7 @@
     {% for item in artist_data.artists.items %}
     <h3 class="music-name">Artist Name: {{ item.name }}</h3>
     {% for image in item.images %}
-    {% if image.width <= 320 and image.width> 170 %}
+    {% if image.width > 170 and image.width <= 320 %}
       <img class="music-img" src="{{ image.url }}" alt="">
       {% endif %}
       {% endfor %}
@@ -41,7 +41,7 @@
         <input type="hidden" name="artist-name" value="{{ item.name }}">
         <input type="hidden" name="external-url" value="{{ item.external_urls.spotify   }}">
         {% for image in item.images %}
-        {% if image.width <= 320 and image.width> 170 %}
+        {% if image.width > 170 and image.width <= 320 %}
           <input type="hidden" name="artist-image" value="{{ image.url }}">
           {% endif %}
           {% endfor %}
