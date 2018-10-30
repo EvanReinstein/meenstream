@@ -6,7 +6,7 @@
 
 
 <!-- get artist name -->
-<form action="{% url 'profile_view' username=user.username %}" method="GET">
+<form id="profile-search" action="{% url 'profile_view' username=user.username %}" method="GET">
   <input name="content" type="text" placeholder="Search">
   <select name="type">
     <option value="artist">Artist</option>
@@ -21,111 +21,111 @@
 
 
 <!-- Artists -->
-  {% if artist_data %}
+{% if artist_data %}
 
-  <!-- {{ artist_data }} -->
-  <!-- <p>Artist Items: {{ artist_data.artists.items }}</p> -->
-  <!-- Artist Search  -->
-  <div class="data-container">
-    <div class="music-data">
-      {% for item in artist_data.artists.items %}
-        <h3 class="music-name">Artist Name: {{ item.name }}</h3>
-          {% for image in item.images %}
-            {% if image.width <= 320 and image.width > 170 %}
-              <img class="music-img" src="{{ image.url }}" alt="">
-            {% endif %}
-          {% endfor %}
-        <h4 class="music-link"><a href="{{ item.external_urls.spotify }}">Listen</a></h4>
-        <form action="{% url 'playlist_index' %}" method="POST">
-          {% csrf_token %}
-          <input type="hidden" name="artist-name" value="{{ item.name }}">
-          <input type="hidden" name="external-url" value="{{ item.external_urls.spotify   }}">
-          {% for image in item.images %}
-            {% if image.width <= 320 and image.width > 170 %}
-              <input type="hidden" name="artist-image" value="{{ image.url }}">
-            {% endif %}
+<!-- {{ artist_data }} -->
+<!-- <p>Artist Items: {{ artist_data.artists.items }}</p> -->
+<!-- Artist Search  -->
+<div class="data-container">
+  <div class="music-data">
+    {% for item in artist_data.artists.items %}
+    <h3 class="music-name">Artist Name: {{ item.name }}</h3>
+    {% for image in item.images %}
+    {% if image.width <= 320 and image.width> 170 %}
+      <img class="music-img" src="{{ image.url }}" alt="">
+      {% endif %}
+      {% endfor %}
+      <h4 class="music-link"><a href="{{ item.external_urls.spotify }}">Listen</a></h4>
+      <form action="{% url 'playlist_index' %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="artist-name" value="{{ item.name }}">
+        <input type="hidden" name="external-url" value="{{ item.external_urls.spotify   }}">
+        {% for image in item.images %}
+        {% if image.width <= 320 and image.width> 170 %}
+          <input type="hidden" name="artist-image" value="{{ image.url }}">
+          {% endif %}
           {% endfor %}
           <button type="submit" class="save-button">Save</button>
-        </form>
+      </form>
 
-    </div>
   </div>
+</div>
 
-      <!-- <h3>Spotify Id: {{ item.id }}</h3> -->
+<!-- <h3>Spotify Id: {{ item.id }}</h3> -->
 
 
-    {% endfor %}
+{% endfor %}
 
-  <!-- Playlist Search  -->
-  <div class="data-container">
-    <div class="music-data">
+<!-- Playlist Search  -->
+<div class="data-container">
+  <div class="music-data">
     {% for item in artist_data.playlists.items %}
-      <h3 class="music-name">Playlist Name: {{ item.name }}</h3>
-        {% for image in item.images %}
-          <img class="music-img" src="{{ image.url }}" alt="">
-        {% endfor %}
-      <h4 class="music-link"><a href="{{ item.external_urls.spotify }}">Listen</a></h4>
-      <button class="save-button">Save</button>
-    </div>
-  </div>
-
-
-      <!-- <h3>Spotify Id: {{ item.id }}</h3> -->
-
-
+    <h3 class="music-name">Playlist Name: {{ item.name }}</h3>
+    {% for image in item.images %}
+    <img class="music-img" src="{{ image.url }}" alt="">
     {% endfor %}
+    <h4 class="music-link"><a href="{{ item.external_urls.spotify }}">Listen</a></h4>
+    <button class="save-button">Save</button>
+  </div>
+</div>
 
-  <!-- Album Search  -->
-  <div class="data-container">
-    <div class="music-data">
+
+<!-- <h3>Spotify Id: {{ item.id }}</h3> -->
+
+
+{% endfor %}
+
+<!-- Album Search  -->
+<div class="data-container">
+  <div class="music-data">
     {% for item in artist_data.albums.items %}
-      {% for name in item.artists %}
-        <h3>Artist Name: {{ name.name }}</h3>
-      {% endfor %}
-      <h3 class="music-name">Album name: {{ item.name }}</h3>
-        {% for image in item.images %}
-          {% if image.width == 300 %}
-            <img class="music-img" src="{{ image.url }}" alt="">
-          {% endif %}
-        {% endfor %}
-      <h4 class="music-link"><a href="{{ item.external_urls.spotify }}">Listen</a></h4>
-      <button class="save-button">Save</button>
-    </div>
-  </div>
-
-
-      <!-- <h3>Spotify Id: {{ item.id }}</h3> -->
-
-
+    {% for name in item.artists %}
+    <h3>Artist Name: {{ name.name }}</h3>
     {% endfor %}
+    <h3 class="music-name">Album name: {{ item.name }}</h3>
+    {% for image in item.images %}
+    {% if image.width == 300 %}
+    <img class="music-img" src="{{ image.url }}" alt="">
+    {% endif %}
+    {% endfor %}
+    <h4 class="music-link"><a href="{{ item.external_urls.spotify }}">Listen</a></h4>
+    <button class="save-button">Save</button>
+  </div>
+</div>
 
-  <!-- Tracks Search  -->
-  <div class="data-container">
-    <div class="music-data">
+
+<!-- <h3>Spotify Id: {{ item.id }}</h3> -->
+
+
+{% endfor %}
+
+<!-- Tracks Search  -->
+<div class="data-container">
+  <div class="music-data">
     {% for item in artist_data.tracks.items %}
-      {% for name in item.artists %}
-        <h3>Artist Name: {{ name.name }}</h3>
-      {% endfor %}
-      <h3 class="music-name">Track Name: {{ item.name }}</h3>
-        {% for image in item.album.images %}
-          {% if image.width == 300 %}
-            <img class="music-img" src="{{ image.url }}" alt="">
-          {% endif %}
-        {% endfor %}
-      <h4 class="music-link"><a href="{{ item.external_urls.spotify }}">Listen</a></h4>
-      <button class="save-button">Save</button>
-    </div>
-  </div>
-
-
-      <!-- <h3>Spotify Id: {{ item.id }}</h3> -->
-
-
+    {% for name in item.artists %}
+    <h3>Artist Name: {{ name.name }}</h3>
     {% endfor %}
+    <h3 class="music-name">Track Name: {{ item.name }}</h3>
+    {% for image in item.album.images %}
+    {% if image.width == 300 %}
+    <img class="music-img" src="{{ image.url }}" alt="">
+    {% endif %}
+    {% endfor %}
+    <h4 class="music-link"><a href="{{ item.external_urls.spotify }}">Listen</a></h4>
+    <button class="save-button">Save</button>
+  </div>
+</div>
 
-  {% else %}
-   <p>Content not found</p>
-  {% endif %}
+
+<!-- <h3>Spotify Id: {{ item.id }}</h3> -->
+
+
+{% endfor %}
+
+{% else %}
+<p>Content not found</p>
+{% endif %}
 
 
 
