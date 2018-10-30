@@ -136,6 +136,7 @@ input[type=submit] {
 .hamburger-icon {
     width: 40px;
     height: 40px;
+    z-index: 999;
 }
 
 .side-bar {

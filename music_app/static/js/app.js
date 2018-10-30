@@ -20,7 +20,11 @@ hamburger.addEventListener('click', handleMenuClick);
 
 function handleMenuClick() {
   var sidebar = document.querySelector('.side-bar')
-  if (sidebar.classList.contains('.hidden')) {
-
+  if (sidebar.classList.contains('hidden')) {
+    sidebar.classList.toggle('hidden')
+    // hamburger.style.color = '#FFFFFF';
+  } else {
+    sidebar.classList.toggle('hidden')
+    // hamburger.style.color = '#000000';
   }
 }
