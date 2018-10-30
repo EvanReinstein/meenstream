@@ -1,20 +1,38 @@
 /* Log in and sign up forms CSS */
 
+.login-form {
+    background-image: url(../images/white-background.jpg);
+    width: 500px;
+    height: 661px;
+    padding-top: 100px;
+    margin: 0 auto;
+}
+
 input[type=username],
 input[type=password] {
     text-align: center;
     font-weight: 700px;
     justify-content: center;
     border-radius: 5px;
-    width: 800px;
+    width: 500px;
     padding: 15px;
     margin: 0em;
     border: none;
 
 }
 
+.login-submit {
+    width: 150px;
+    margin-top: 20px;
+}
 
-border: none;
+.btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* border: none;
 background-color: #EFEFEF;
 font-size: 14px;
-font-weight: 700;
+font-weight: 700; */
