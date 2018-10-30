@@ -50,22 +50,30 @@ a {
 
 .nav-bar {
     border-bottom: 1px solid #F3F3F3;
+    background-color: #FFFFFF;
+    color: #767676;
+    font-weight: 700;
     display: flex;
     flex-flow: row wrap;
-
-
+    position: fixed;
+    width: 100%;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    justify-content: space-between;
+    padding: 2em 3em;
 }
 
 .logo {
-    margin: 1.5em 2em;
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
 }
 
 input[type=text],
+input[type=text],
 input[type=password] {
     padding: 15px;
-    margin: 1.5em 1em;
+    margin: 0em;
     border-radius: 5px;
     border: none;
     background-color: #EFEFEF;
@@ -98,9 +106,9 @@ input[type=submit] {
 }
 
 .nav-links {
-    margin: 2em 1em 2em 2em;
     padding: 0px;
     float: right;
+    margin-top: 10px;
 }
 
 .nav-links a {
@@ -119,7 +127,7 @@ input[type=submit] {
 .hamburger {
     float: right;
     display: none;
-    margin: 1.5em 2em;
+    margin: 0em;
 
 }
 
@@ -131,8 +139,8 @@ input[type=submit] {
 /* Footer */
 
 footer {
-    background-color: #F7F7F7;
-    color: #000000;
+    background-color: #333333;
+    color: white;
     font-size: 14px;
     font-weight: 700;
     width: 100%;
@@ -140,11 +148,14 @@ footer {
     flex-flow: row wrap;
     justify-content: space-between;
     padding: 2em 3em;
+    top: 0;
+    bottom: 0;
+    position: relative;
 }
 
 .footer-logo {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
 }
 
 .email {
@@ -180,28 +191,19 @@ footer {
 
 /* Media Queries */
 
-@media only screen and (max-width: 1422px) {
+@media only screen and (max-width: 1470px) {
     input[type=text] {
-        width: 600px;
+        width: 500px;
     }
 }
 
 @media only screen and (max-width: 1220px) {
     input[type=text] {
-        width: 500px;
+        width: 400px;
     }
 
     .nav-links {
         padding-right: 10px;
-    }
-}
-
-@media only screen and (max-width: 1124px) {
-
-    /* Nav Bar */
-
-    input[type=text] {
-        width: 400px;
     }
 }
 
@@ -223,27 +225,19 @@ footer {
     /* Nav Bar */
 
     input[type=text] {
-        width: 250px;
-        margin-left: 0px;
-    }
-}
-
-@media only screen and (max-width: 875px) {
-
-    /* Nav Bar */
-
-    input[type=text] {
         width: 200px;
+        margin-left: 0px;
     }
 
     .nav-links {
         padding-right: 0px;
-        margin-left: 10px;
+        margin-left: 0px;
         margin-right: 0px;
     }
 }
+}
 
-@media only screen and (max-width: 812px) {
+@media only screen and (max-width: 786px) {
     .nav-links {
         padding-right: 0px;
         margin-left: 0px;
@@ -251,7 +245,7 @@ footer {
     }
 }
 
-@media only screen and (max-width: 759px) {
+@media only screen and (max-width: 775px) {
 
     /* Nav Bar */
 
@@ -300,7 +294,6 @@ footer {
     }
 
     .social {
-        text-align: center;
         margin-left: auto;
         margin-right: auto;
     }
