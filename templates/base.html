@@ -20,6 +20,19 @@
 
     <div class="hamburger">
       <img class="hamburger-icon" src="/static/images/hamburger-icon.png" alt="Hamburger" />
+      <div class="side-bar hidden">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="{% url 'home' %}">Home</a></li>
+          <li class="nav-item"><a href="{% url 'about' %}">About</a></li>
+          {% if user.is_authenticated %}
+          <li class="nav-item"><a href="{% url 'profile_view' username=user.username %}">Profile</a></li>
+          <li class="nav-item"><a href="{% url 'logout' %}">Logout</a></li>
+          {% else %}
+          <li class="nav-item"><a href="{% url 'login' %}">Login</a></li>
+          <li class="nav-item"><a href="{% url 'register' %}">Register</a></li>
+          {% endif %}
+        </ul>
+      </div>
     </div>
 
     <!--If we want to use this later we can - our "main nav"-->
