@@ -138,6 +138,39 @@ input[type=submit] {
     height: 40px;
 }
 
+.side-bar {
+    background-color: #000000;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 30%;
+    overflow: hidden;
+    transition: width .4s ease;
+}
+
+.hidden {
+    width: 0;
+}
+
+.side-bar ul {
+    width: 100%;
+    padding: 80px 40px;
+    box-sizing: border-box;
+}
+
+.nav-item {
+    list-style-type: none;
+    font-size: 16px;
+    color: white;
+    margin: 0 0 10px 0;
+}
+
+.nav-item a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
 /* Footer */
 
 footer {
