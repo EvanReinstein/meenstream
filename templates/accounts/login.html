@@ -5,7 +5,7 @@
 <h2>Login</h2>
 
 {% if error %}
-<p style=" background-color: red; padding: 1rem; ">{{ error }}</p>
+<p style=" background-color: red; padding: 1rem; margin-top: 65px; ">{{ error }}</p>
 {% endif %}
 
 <form class="login-form" action="{% url 'login' %}" method="POST">
