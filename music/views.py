@@ -12,8 +12,11 @@ def playlist_index(request):
     name = request.POST['artist-name']
     image = request.POST['artist-image']
     url = request.POST['external-url']
+    user_id = request.user.id
+    # user_playlists = Playlist.objects.filter(user_id=user_id)
 
-    playlist = playlists.create(user_id=request.user.id, name=name, image=image, url=url)
+    playlist = Playlist.objects.create(name=name, image=image, url=url, user_id=user_id)
+    print(playlist)
 
 
     # playlist = Playlist.objects.filter(user_id=request.user.id)

@@ -39,7 +39,7 @@
       <form action="{% url 'playlist_index' %}" method="POST">
         {% csrf_token %}
         <input type="hidden" name="artist-name" value="{{ item.name }}">
-        <input type="hidden" name="external-url" value="{{ item.external_urls.spotify   }}">
+        <input type="hidden" name="external-url" value="{{ item.external_urls.spotify }}">
         {% for image in item.images %}
         {% if image.width > 170 and image.width <= 320 %}
           <input type="hidden" name="artist-image" value="{{ image.url }}">
