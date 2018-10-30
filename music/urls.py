@@ -7,5 +7,6 @@ urlpatterns = [
     path('profile/<username>', views.profile_view, name="profile_view"),
     # path('search', views.search, name="search"),
     path('tracks', views.artist_top_tracks, name="tracks"),
+    # path('artist-save', views.artist_save, name="artist_save")
 
 ]
