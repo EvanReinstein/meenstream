@@ -8,12 +8,12 @@ import base64
 
 # Create your views here.
 def playlist_index(request):
-    playlists = Playlist.objects.all()
+    # playlists = Playlist.objects.all()
     name = request.POST['artist-name']
     image = request.POST['artist-image']
     url = request.POST['external-url']
     user_id = request.user.id
-    # user_playlists = Playlist.objects.filter(user_id=user_id)
+    playlists = Playlist.objects.filter(user_id=user_id)
 
     playlist = Playlist.objects.create(name=name, image=image, url=url, user_id=user_id)
     print(playlist)
@@ -32,7 +32,7 @@ def playlist_view(request, playlist_id):
 def playlist_delete(request, playlist_id):
     delete_item = Playlist.objects.get(id=playlist_id)
     delete_item.delete()
-    return render(request, 'music/playlist_index.html', {'playlist': playlist})    
+    return render(request, 'music/playlist_index.html', {'playlist': playlist})
 
 # def profile_view(request, username):
 #     user = User.objects.get(username=username)
