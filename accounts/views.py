@@ -59,16 +59,16 @@ def register(request):
                     user.save()
 
                     # Create a playlist variable like user variable above
-                    playlist = Playlist.objects.create(user_id=user)
+                    playlist = Playlist.objects.create(user=user)
                     playlist.save()
 
                     # Create a profile variable like user variable above
-                    profile = Profile.objects.create(user_id=user, playlist_id=playlist)
+                    profile = Profile.objects.create(user=user, playlist=playlist)
                     profile.save()
 
                     # the two lines below will automatically log the user in and send them to their page.  In the uncommented code we are not loggin them in, rather sending them to the login to do it themselves...
                     auth.login(request, user)
-                    return redirect('playlist_index')
+                    return redirect('home')
                     # return redirect('login')
         else:
             return render(request, 'accounts/register.html', {'error': 'Passwords do not match.'})
