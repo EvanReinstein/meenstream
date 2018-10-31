@@ -7,7 +7,7 @@ MEENStream is a visually striking Spotify companion app that gives music fanatic
 ![User Flow](wireframe/wire2.png)
 ![Wireframes](wireframe/wire1.png)
 
-##Entity Relationship Diagram
+## Entity Relationship Diagram
 ![ERD](wireframe/ERD_meenstream.png)
 
 ## Features
@@ -31,9 +31,9 @@ User Stories: https://trello.com/b/jvZch0l8/music-app
 * Login direct to last track
 
 ## MEENStream Team
-Mark Mandell https://git.generalassemb.ly/markman0922
-Emily Lane https://git.generalassemb.ly/EmilyHL
-Evan Reinstein https://git.generalassemb.ly/EvanReinstein
-Natasha Quijano https://git.generalassemb.ly/natashaquijano
+### Mark Mandell https://git.generalassemb.ly/markman0922
+### Emily Lane https://git.generalassemb.ly/EmilyHL
+### Evan Reinstein https://git.generalassemb.ly/EvanReinstein
+### Natasha Quijano https://git.generalassemb.ly/natashaquijano
 
 
