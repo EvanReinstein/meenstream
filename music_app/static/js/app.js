@@ -8,7 +8,7 @@ $(document).ready(function () {
 });
 
 
-// Nav bar functionality 
+// Nav bar functionality
 
 const hamburger = document.querySelector('.hamburger-icon');
 
@@ -19,12 +19,13 @@ hamburger.addEventListener('click', handleMenuClick);
 // Handle menu click
 
 function handleMenuClick() {
+  console.log('You clicked the burger');
   var sidebar = document.querySelector('.side-bar')
   if (sidebar.classList.contains('hidden')) {
-    sidebar.classList.toggle('hidden')
-    // hamburger.style.color = '#FFFFFF';
+    sidebar.classList.toggle('hidden');
+    hamburger.style.color = '#FFFFFF';
   } else {
-    sidebar.classList.toggle('hidden')
-    // hamburger.style.color = '#000000';
+    sidebar.classList.toggle('hidden');
+    hamburger.style.color = '#767676';
   }
 }

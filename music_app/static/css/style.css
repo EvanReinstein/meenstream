@@ -130,24 +130,25 @@ input[type=submit] {
     float: right;
     display: none;
     margin: 0em;
-
 }
 
-.hamburger-icon {
-    width: 40px;
-    height: 40px;
-    z-index: 999;
+i {
+  position: fixed;
+  right: 51px;
+  font-size: 40px;
+  z-index: 999;
 }
 
 .side-bar {
-    background-color: #000000;
+    background-color: #333333;
     position: fixed;
     top: 0;
-    bottom: 0;
+    /* bottom: 500px; */
     right: 0;
-    width: 30%;
+    width: 20%;
     overflow: hidden;
     transition: width .4s ease;
+    /* border-radius: 10px; */
 }
 
 .hidden {
@@ -164,12 +165,18 @@ input[type=submit] {
     list-style-type: none;
     font-size: 16px;
     color: white;
-    margin: 0 0 10px 0;
+    /* margin: 5px auto; */
 }
 
 .nav-item a {
     color: #FFFFFF;
     text-decoration: none;
+    margin: 5px auto;
+}
+
+.nav-item a:hover {
+  color: #66A9A9;
+  font-weight: bold;
 }
 
 /* Footer */
