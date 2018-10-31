@@ -29,6 +29,11 @@ def playlist_view(request, playlist_id):
     playlist = Playlist.objects.get(id=playlist_id)
     return render(request, 'music/playlist_view.html', {'playlist': playlist})
 
+def playlist_delete(request, playlist_id):
+    delete_item = Playlist.objects.get(id=playlist_id)
+    delete_item.delete()
+    return render(request, 'music/playlist_index.html', {'playlist': playlist})    
+
 # def profile_view(request, username):
 #     user = User.objects.get(username=username)
 #
