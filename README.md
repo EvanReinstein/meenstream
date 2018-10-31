@@ -36,4 +36,6 @@ User Stories: https://trello.com/b/jvZch0l8/music-app
 ### Evan Reinstein https://git.generalassemb.ly/EvanReinstein
 ### Natasha Quijano https://git.generalassemb.ly/natashaquijano
 
+[MEENStream GitHub Repo](https://git.generalassemb.ly/markman0922/music-app)
+
 
