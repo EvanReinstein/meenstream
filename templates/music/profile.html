@@ -45,7 +45,7 @@
       <img class="music-img" src="{{ image.url }}" alt="">
       {% endif %}
       {% endfor %}
-      <h4 class="music-link"><a href="{{ item.external_urls.spotify }}">Listen</a></h4>
+      <h4 class="music-link"><a href="{{ item.external_urls.spotify }}"><img src="{% static 'images/green-play.png' %}" alt=""></a></h4>
       <form action="{% url 'playlist_index' %}" method="POST">
         {% csrf_token %}
         <input type="hidden" name="artist-name" value="{{ item.name }}">
@@ -55,9 +55,9 @@
           <input type="hidden" name="artist-image" value="{{ image.url }}">
           {% endif %}
           {% endfor %}
-          <button type="submit" class="save-button">Save</button>
+          <button type="submit" class="save-button"><img src="{% static 'images/heart-icon.png' %}" alt="Love" /></button>
       </form>
-
+      <hr>
   </div>
 </div>
 
