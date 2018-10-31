@@ -34,10 +34,6 @@ def playlist_delete(request, playlist_id):
     delete_item.delete()
     return render(request, 'music/playlist_index.html', {'playlist': playlist})
 
-# def profile_view(request, username):
-#     user = User.objects.get(username=username)
-#
-#     return render(request, 'music/profile.html', {'user': user})
 
 # Includes search functionality
 def profile_view(request, username):
@@ -55,46 +51,9 @@ def profile_view(request, username):
     artist = requests.get(f'https://api.spotify.com/v1/search?q={q}&type={type}', headers=headers)
     r = artist.content
     artist_decode = json.loads(r.decode())
-    # artist_parse = json.loads(r.decode())
-    # # Variables for save function
-    # artist_name = artist_parse['artists']['items'][0]['name']
-    # artist_img = artist_parse['artists']['items'][0]['images'][1]['url']
-    # artist_link = artist_parse['artists']['items'][0]['external_urls']['spotify']
-    #
-    # print(artist_parse['artists']['items'][0]['external_urls']['spotify'])
 
     return render(request, 'music/profile.html', {'artist_data': artist_decode, 'user': user})
 
-
-def artist_for_tracks():
-    b_token = get_token()
-    headers = {
-        'Authorization': f'Bearer {b_token}',
-    }
-    artist = requests.get('https://api.spotify.com/v1/search?q=jimi+hendrix&type=artist', headers=headers)
-    r = artist.content
-    artist_decode = json.loads(r.decode())
-    artist = artist_decode['artists']
-    items = artist['items']
-    artist_id = items['id']
-    print(artist)
-    print(items)
-    print(artist_id)
-    # for item in artist.items:
-    #     artist_id = item.id
-    # return artist_id
-
-def artist_top_tracks(request):
-    artist_id = artist_for_tracks()
-    b_token = get_token()
-    headers = {
-        'Authorization': f'Bearer {b_token}',
-    }
-    top_tracks = requests.get(f'https://api.spotify.com/v1/artists/{artist_id}/top-tracks?country=US', headers=headers)
-    t = top_tracks.content
-    top_tracks_decode = json.loads(t.decode())
-    print(top_tracks_decode)
-    return render(request, 'music/tracks.html', {'top_tracks': top_tracks_decode})
 
 def get_token():
     string_bytes = b'7f6d69ae386b414099749fee14c7bfc2:2f94240e53604bada9dd9f1fcb3b5275'
@@ -120,11 +79,3 @@ def get_token():
     print(res_decode['access_token'])
     auth_token = res_decode['access_token']
     return auth_token
-
-
-# def artist_save(request):
-#     name = request.POST['artist-name']
-#     image = request.POST['artist-image']
-#     url = request.POST['external-url']
-#
-#     print('ARTIST FORM = ', name, image, url)
