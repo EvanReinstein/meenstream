@@ -17,12 +17,8 @@ def playlist_index(request):
 
     playlist = Playlist.objects.create(name=name, image=image, url=url, user_id=user_id)
     print(playlist)
-
-
     # playlist = Playlist.objects.filter(user_id=request.user.id)
     # playlist.update(name=name, image=image, url=url)
-
-    print('ARTIST FORM = ', name, image, url)
     return render(request, 'music/playlist_index.html', {'playlists': playlists, 'playlist': playlist})
 
 def playlist_view(request, playlist_id):
@@ -33,7 +29,6 @@ def playlist_delete(request, playlist_id):
     delete_item = Playlist.objects.get(id=playlist_id)
     delete_item.delete()
     return render(request, 'music/playlist_index.html', {'playlist': playlist})
-
 
 # Includes search functionality
 def profile_view(request, username):
@@ -53,7 +48,6 @@ def profile_view(request, username):
     artist_decode = json.loads(r.decode())
 
     return render(request, 'music/profile.html', {'artist_data': artist_decode, 'user': user})
-
 
 def get_token():
     string_bytes = b'7f6d69ae386b414099749fee14c7bfc2:2f94240e53604bada9dd9f1fcb3b5275'
