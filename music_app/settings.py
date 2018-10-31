@@ -127,4 +127,4 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'music_app/static')
 ]
 
-# django_heroku.settings(locals())
+django_heroku.settings(locals())
