@@ -1,0 +1,69 @@
+/* Log in and sign up forms CSS */
+
+.login-form,
+.registration-form {
+    background-image: url(../images/white-background.jpg);
+    width: 500px;
+    height: 661px;
+    padding-top: 100px;
+    margin: 0 auto;
+}
+
+.registration-form {
+    margin-top: 150px;
+}
+
+input[type=username],
+input[type=password],
+.user-info,
+input[type=text],
+input[type=email] {
+    text-align: center;
+    font-weight: 700;
+    justify-content: center;
+    border-radius: 5px;
+    width: 500px;
+    padding: 15px;
+    margin: 0em;
+    border: none;
+    background-color: #EFEFEF;
+    font-size: 14px;
+}
+
+.login-reg-submit {
+    width: 150px;
+    margin-top: 20px;
+}
+
+.login-reg-submit:hover {
+    font-weight: 900;
+
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+.username-label {
+    margin-top: 20px;
+    font-weight: 500;
+    font-size: 18px;
+    color: #333333;
+
+}
+
+@media only screen and (max-width: 540px) {
+  .login-form,
+  .registration-form {
+    width: 350px;
+  }
+
+  input[type=username],
+  input[type=password],
+  .user-info,
+  input[type=text],
+  input[type=email] {
+    width: 350px;
+  }
+}
