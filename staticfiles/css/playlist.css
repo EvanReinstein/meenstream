@@ -1,0 +1,52 @@
+/* Playlists and profiles CSS */
+#profile-search {
+    margin-top: 50px;
+    padding-left: 25px;
+}
+
+.profile-detail {
+  display: flex;
+  flex-direction: row;
+  margin-top: 110px;
+  padding: 45px;
+  width: 100%;
+  background-color: #87A47F;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-info p {
+  padding: 10px;
+}
+
+select {
+  height: 47px;
+  border-radius: 5px;
+  border: none;
+  background-color: #EFEFEF;
+  color: #767676;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.profile-results {
+  padding-left: 25px;
+}
+
+@media only screen and (max-width: 700px) {
+  #search-input {
+    width: 200px;
+  }
+
+  .profile-detail {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-info {
+    text-align: center;
+  }
+}
