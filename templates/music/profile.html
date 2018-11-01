@@ -119,9 +119,6 @@
 <div class="data-container">
   <div class="music-data">
     {% for item in artist_data.tracks.items %}
-    {% for name in item.artists %}
-    <h3>Artist Name: {{ name.name }}</h3>
-    {% endfor %}
     <h3 class="music-name">Track Name: {{ item.name }}</h3>
     {% for image in item.album.images %}
     {% if image.width == 300 %}
