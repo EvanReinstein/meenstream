@@ -4,6 +4,31 @@
     padding-left: 25px;
 }
 
+.music-name {
+  text-align: center;
+}
+
+.music-img {
+  max-width: 350px;
+  margin-left: 2rem;
+  text-align: center;
+}
+
+.music-link {
+  float: right;
+  margin: 2rem;
+}
+
+.save-button {
+  border: none;
+}
+
+form {
+  border-bottom: 1px solid #000;
+  margin: 4rem;
+  padding-bottom: 6rem;
+}
+
 .profile-detail {
   display: flex;
   flex-direction: row;
@@ -20,6 +45,18 @@
 
 .profile-info p {
   padding: 10px;
+}
+
+.playlists-header {
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 5rem;
+  padding: 4rem;
+}
+
+.saved-playlist {
+  padding: 4rem;
+  border-bottom: 1px solid #000;
 }
 
 select {

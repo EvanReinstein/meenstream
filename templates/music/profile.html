@@ -29,12 +29,11 @@
 
 <h1 class="profile-results">Search Results</h1>
 
-
 <!-- Artists -->
 {% if artist_data %}
 
-<!-- {{ artist_data }} -->
-<!-- <p>Artist Items: {{ artist_data.artists.items }}</p> -->
+<!-- {{ artist_data }} uncomment to see the music-data object in console -->
+
 <!-- Artist Search  -->
 <div class="data-container">
   <div class="music-data">
@@ -57,12 +56,8 @@
           {% endfor %}
           <button type="submit" class="save-button"><img src="{% static 'images/heart-icon.png' %}" alt="Love" /></button>
       </form>
-      <hr>
   </div>
 </div>
-
-<!-- <h3>Spotify Id: {{ item.id }}</h3> -->
-
 
 {% endfor %}
 
@@ -90,18 +85,12 @@
 </div>
 
 
-<!-- <h3>Spotify Id: {{ item.id }}</h3> -->
-
-
 {% endfor %}
 
 <!-- Album Search  -->
 <div class="data-container">
   <div class="music-data">
     {% for item in artist_data.albums.items %}
-    {% for name in item.artists %}
-    <h3>Artist Name: {{ name.name }}</h3>
-    {% endfor %}
     <h3 class="music-name">Album name: {{ item.name }}</h3>
     {% for image in item.images %}
     {% if image.width == 300 %}
@@ -122,9 +111,6 @@
     </form>
   </div>
 </div>
-
-
-<!-- <h3>Spotify Id: {{ item.id }}</h3> -->
 
 
 {% endfor %}
@@ -157,16 +143,10 @@
   </div>
 </div>
 
-
-<!-- <h3>Spotify Id: {{ item.id }}</h3> -->
-
-
 {% endfor %}
 
 {% else %}
 <p>Content not found</p>
 {% endif %}
-
-
 
 {% endblock %}
